@@ -1,4 +1,4 @@
-# atomic_design
+# base_atom
 
 ## Project setup
 ```

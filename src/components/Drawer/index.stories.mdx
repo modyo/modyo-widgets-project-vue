@@ -1,0 +1,55 @@
+import { Meta, Props, Story, Preview } from '@storybook/addon-docs/blocks';
+import { action } from "@storybook/addon-actions";
+import Drawer from './index.vue';
+import {  text, boolean, number, date, select } from "@storybook/addon-knobs";
+import { withA11y } from '@storybook/addon-a11y';
+
+<Meta title="Components|Drawer" 
+component={Drawer} 
+decorators={[withA11y]} parameters={
+  {notes:`
+                # Notas
+                Aqui van las notas adicionales
+              `
+  }}/>
+
+# Drawer
+
+<Props of={Drawer} />
+
+This is a simple Drawer Panel
+
+<Preview>
+<Story name="Drawer Panel" inline={true}>
+  {{
+      components: { Drawer },
+      props:{
+        directionFrom:{
+          default:select('Direction',['left','right'], 'left'),
+        }
+      },
+      template: `
+                  <div>
+                  <drawer
+                  ref="drawer"
+                  :direction="directionFrom"
+                  >
+                  <h1>open</h1>
+                </drawer>
+                <button @click="open">open</button>
+                </div>
+                `,
+      methods: { 
+        open(){
+          this.$refs.drawer.open()
+        },
+        action: action("clicked") ,
+      handleSlideStart:action('handleSlideStart'),
+      handleSlideMove:action('handleSlideMove'),
+      handleSlideEnd:action('handleSlideEnd'),
+      handleMaskClick:action('handleMaskClick'),
+      }
+  }}
+</Story>
+</Preview>
+

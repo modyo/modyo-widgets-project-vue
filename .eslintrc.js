@@ -12,15 +12,15 @@ module.exports = {
     parser: 'babel-eslint',
   },
   rules: {
-    'no-console': 'off',
-    'no-debugger': 'off',
-    'import/no-extraneous-dependencies': 'error',
+    'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
   },
   overrides: [
     {
       files: [
         '**/__tests__/*.{j,t}s?(x)',
         '**/tests/unit/**/*.spec.{j,t}s?(x)',
+        '**/tests/unit/**/*.test.{j,t}s?(x)',
       ],
       env: {
         jest: true,
