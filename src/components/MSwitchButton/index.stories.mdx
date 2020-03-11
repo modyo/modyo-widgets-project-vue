@@ -1,0 +1,67 @@
+import { Meta, Props, Story, Preview } from '@storybook/addon-docs/blocks';
+import { action } from "@storybook/addon-actions";
+import MSwitchButton from './index.vue';
+import {  text, boolean, number, date, select, color } from "@storybook/addon-knobs";
+import { withA11y } from '@storybook/addon-a11y';
+
+<Meta title="Components|MSwitchButton" 
+component={MSwitchButton} 
+decorators={[withA11y]} parameters={
+  {notes:`
+                # Notas
+                Aqui van las notas adicionales
+              `
+  }}/>
+
+# MSwitchButton
+
+<Props of={MSwitchButton} />
+
+This is a simple M Switch Button
+
+<Preview>
+<Story name="M Switch Button" inline={true}>
+  {{
+      components: { MSwitchButton },
+      props:{
+     label: {
+      type: String,
+      default: text('Label','Label'),
+    },
+    activeColor: {
+      type: String,
+      default: color('Active Color','#2e4553'),
+    },
+    inactiveColor: {
+      type: String,
+      default: color('Inactive Color','#636e72'),
+    },
+    activeLabelColor: {
+      type: String,
+      default: color('Active Label Color','#2e4553'),
+    },
+    inactiveLabelColor: {
+      type: String,
+      default: color('Inactive Label Color','#636e72'),
+    },
+      },
+      data:()=>({
+            isEnabled: true,
+      }),
+      template: `
+                  <div class="container px-5">
+                      <m-switch-button 
+                      :activeColor="activeColor"
+                      :inactiveColor="inactiveColor"
+                      :activeLabelColor="activeLabelColor"
+                      :inactiveLabelColor="inactiveLabelColor"
+                      v-model="isEnabled"
+                      >
+                      {{label}}
+                      </m-switch-button>
+                </div>
+                `
+  }}
+</Story>
+</Preview>
+

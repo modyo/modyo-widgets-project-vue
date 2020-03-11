@@ -1,0 +1,41 @@
+import { Meta, Props, Story, Preview } from '@storybook/addon-docs/blocks';
+import { action } from "@storybook/addon-actions";
+import MStepper from './index.vue';
+import {  text, boolean, number, date, select } from "@storybook/addon-knobs";
+import { withA11y } from '@storybook/addon-a11y';
+
+<Meta title="Components|MStepper" 
+component={MStepper} 
+decorators={[withA11y]} parameters={
+  {notes:`
+      # Notas
+      Aqui van las notas adicionales
+    `
+  }}/>
+
+# MStepper
+
+<Props of={MStepper} />
+
+This is a simple Progress Bar
+
+<Preview>
+<Story name="Progress Bar" inline={true}>
+  {{
+      components: { MStepper },
+      data:()=>({
+        step: { 
+              value: number('selected step',1)
+              }
+      }),
+      template: `
+                  <div class="container p-5">
+                      <m-stepper
+                        v-model="step"
+                        :steps="3" />
+                </div>
+                `
+  }}
+</Story>
+</Preview>
+
