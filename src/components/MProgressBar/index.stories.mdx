@@ -1,7 +1,7 @@
 import { Meta, Props, Story, Preview } from '@storybook/addon-docs/blocks';
 import { action } from "@storybook/addon-actions";
 import MProgressBar from './index.vue';
-import {  text, boolean, number, date, select } from "@storybook/addon-knobs";
+import {  text, boolean, number, date, select, color } from "@storybook/addon-knobs";
 import { withA11y } from '@storybook/addon-a11y';
 
 <Meta title="Components|MProgressBar" 
@@ -26,11 +26,11 @@ decorators={[withA11y]} parameters={
       props:{
         backgroundColor: {
           type: String,
-          default: text('Background Color','rgba(255, 255, 255, .4)')
+          default: color('Background Color','rgba(255, 255, 255, .4)')
         },
         borderColor: {
           type: String,
-          default:  text('Border Color','#c1cbcf'),
+          default:  color('Border Color','#c1cbcf'),
         },
         percentage: {
           type: Number,

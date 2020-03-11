@@ -26,6 +26,12 @@ Can have a Label
   <Story name="With Label" inline={true}>
     {{
         components: { MDatepicker },
+        props:{
+          label:{
+            type:String,
+          default:text('Label', 'Etiqueta')
+          }
+        },
         template:`<m-datepicker  
           v-model="date"
           :format="dateFormats.short"
@@ -39,7 +45,7 @@ Can have a Label
           range
           no-input
           class="datepicker"  
-          label="fecha"
+          :label="label"
           ></m-datepicker>`,
         data:()=>({
           date:new Date(),

@@ -15,12 +15,12 @@ if (IN_PRODUCTION) {
       /-(leave|enter|appear)(|-(to|from|active))$/,
       /^(?!(|.*?:)cursor-move).+-move$/,
       /^router-link(|-exact)-active$/,
+      /^progress*/,
     ],
   });
 }
 
 plugins.autoprefixer = {};
-
-export default {
+module.exports = {
   plugins,
 };

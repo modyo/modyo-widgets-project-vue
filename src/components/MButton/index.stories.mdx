@@ -2,7 +2,14 @@ import { Meta, Props, Story, Preview } from '@storybook/addon-docs/blocks';
 import { action } from "@storybook/addon-actions";
 import MyButton from './index.vue';
 
-<Meta title="Components|Button" component={MyButton} />
+
+<Meta title="Components|Button" component={MyButton}  
+parameters={{
+themes: [
+    { name: 'twitter', class: 'theme-twt', color: '#00aced', default: true },
+    { name: 'facebook', class: 'theme-fb', color: '#3b5998' }
+  ],
+}}/>
 
 # Button
 
@@ -11,7 +18,7 @@ import MyButton from './index.vue';
 This is a simple button with some text in it.
 
 <Preview>
-  <Story name="With Text">
+  <Story name="With Text" >
     {{
         components: { MyButton },
         template: '<my-button @click="action">Hello Button</my-button>',

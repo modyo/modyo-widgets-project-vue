@@ -4,6 +4,7 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
   },
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git@github.com:modyo/modyo-widgets-project-vue.git"
@@ -21,12 +22,14 @@
   "dependencies": {
     "@fullhuman/postcss-purgecss": "^2.1.0",
     "@mathieustan/vue-datepicker": "^0.2.3-rc.1",
+    "@storybook/addon-backgrounds": "^5.3.14",
     "@storybook/addons": "^5.3.14",
     "@storybook/theming": "^5.3.14",
     "bootstrap": "^4.4.1",
     "core-js": "^3.6.4",
     "currency.js": "^1.2.2",
     "date-fns": "^2.10.0",
+    "storybook-addon-themes": "^5.4.0",
     "vue": "^2.6.11"
   },
   "devDependencies": {

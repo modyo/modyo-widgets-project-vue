@@ -1,7 +1,7 @@
 import { Meta, Props, Story, Preview } from '@storybook/addon-docs/blocks';
 import { action } from "@storybook/addon-actions";
 import MShadowScroll from './index.vue';
-import {  text, boolean, number, date, select } from "@storybook/addon-knobs";
+import {  text, boolean, number, date, select,color } from "@storybook/addon-knobs";
 import { withA11y } from '@storybook/addon-a11y';
 
 <Meta title="Components|MShadowScroll" 
@@ -17,10 +17,10 @@ decorators={[withA11y]} parameters={
 
 <Props of={MShadowScroll} />
 
-This is a simple Progress Bar
+This is a simple Shadow Scroll
 
 <Preview>
-<Story name="Progress Bar" inline={true}>
+<Story name="Shadow Scroll" inline={true}>
   {{
       components: { MShadowScroll },
       props:{
@@ -34,11 +34,11 @@ This is a simple Progress Bar
         },
         startColor: {
           type: String,
-          default: text('Start Color','#f0f2f3'),
+          default: color('Start Color','#f0f2f3'),
         },
         endColor: {
           type: String,
-          default: text('End Color','rgba(240, 242, 243, 0)'),
+          default: color('End Color','rgba(240, 242, 243, 0)'),
         },
       },
       data:()=>({
