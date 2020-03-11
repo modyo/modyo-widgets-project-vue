@@ -1,0 +1,29 @@
+branches: [master]
+name-template: 'v$NEXT_PATCH_VERSION'
+tag-template: 'v$NEXT_PATCH_VERSION'
+change-template: '- $TITLE @$AUTHOR (#$NUMBER)'
+template: |
+  ## Changes
+
+  $CHANGES
+categories:
+  - title: '🚀 Features'
+    labels:
+      - 'feat'
+      - 'enhancement'
+      - 'refactor'
+      - 'test'
+  - title: '🐛 Bug Fixes'
+    labels:
+      - 'fix'
+      - 'bugfix'
+      - 'bug'
+      - 'docs'
+      - 'build'
+      - 'fix'
+  - title: '🧰 Maintenance'
+    labels:
+      - 'chore'
+      - 'ci'
+      - 'style'
+      - 'perf'
