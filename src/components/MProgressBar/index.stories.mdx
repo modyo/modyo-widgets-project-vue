@@ -1,0 +1,91 @@
+import { Meta, Props, Story, Preview } from '@storybook/addon-docs/blocks';
+import { action } from "@storybook/addon-actions";
+import MProgressBar from './index.vue';
+import {  text, boolean, number, date, select, color } from "@storybook/addon-knobs";
+import { withA11y } from '@storybook/addon-a11y';
+
+<Meta title="Components|MProgressBar" 
+component={MProgressBar} 
+decorators={[withA11y]} parameters={
+  {notes:`
+                # Notas
+                Aqui van las notas adicionales
+              `
+  }}/>
+
+# MProgressBar
+
+<Props of={MProgressBar} />
+
+# This is a simple Progress Bar
+
+<Preview>
+<Story name="Progress Bar" inline={true}>
+  {{
+      components: { MProgressBar },
+      props:{
+        backgroundColor: {
+          type: String,
+          default: color('Background Color','rgba(255, 255, 255, .4)')
+        },
+        borderColor: {
+          type: String,
+          default:  color('Border Color','#c1cbcf'),
+        },
+        percentage: {
+          type: Number,
+          default: number('percentage',20),
+        },
+      },
+      template: `
+                  <div>
+                  <m-progress-bar
+                      :percentage="percentage"
+                      :background-color="backgroundColor"
+                      :border-color="borderColor">
+                        <template #after="{percentage}">
+                        <p class="d-sm-block text-center mb-0 mt-2">
+                            <strong>{{ percentage }}</strong>%
+                        </p>
+                      </template>
+                    </m-progress-bar>
+                </div>
+                `
+  }}
+</Story>
+<Story name="Progress Bar 2" inline={true}>
+  {{
+      components: { MProgressBar },
+      props:{
+        backgroundColor: {
+          type: String,
+          default: text('Background Color','rgba(255, 255, 255, .4)')
+        },
+        borderColor: {
+          type: String,
+          default:  text('Border Color','#c1cbcf'),
+        },
+        percentage: {
+          type: Number,
+          default: number('percentage',20),
+        },
+      },
+      template: `
+                  <div>
+                  <m-progress-bar
+                      :percentage="percentage"
+                      :background-color="backgroundColor"
+                      :border-color="borderColor">
+                        <template #after="{percentage}">
+                        <p class="d-sm-block text-center mb-0 mt-2">
+                            <strong>{{ percentage }}</strong>%
+                        </p>
+                      </template>
+                    </m-progress-bar>
+                </div>
+                `
+  }}
+</Story>
+</Preview>
+
+Jorge saud

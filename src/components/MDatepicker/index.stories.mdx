@@ -1,0 +1,120 @@
+import { Meta, Props, Story, Stories,Preview } from '@storybook/addon-docs/blocks';
+import MDatepicker from './index.vue';
+import { addParameters } from '@storybook/vue';
+import {  text, boolean, number, date, select } from "@storybook/addon-knobs";
+import { withA11y } from '@storybook/addon-a11y';
+import { action } from "@storybook/addon-actions";
+
+import VueDatePicker from '@mathieustan/vue-datepicker/src/components/DatePicker/DatePicker.vue';
+
+<Meta title="Components|MDatepicker" 
+component={MDatepicker} 
+decorators={[withA11y]} parameters={
+  {notes:`
+                # Notas
+                Aqui van las notas adicionales
+              `
+  }}/>
+
+# MDatepicker
+
+<Props of={MDatepicker}   />
+
+Can have a Label
+
+<Preview>
+  <Story name="With Label" inline={true}>
+    {{
+        components: { MDatepicker },
+        props:{
+          label:{
+            type:String,
+          default:text('Label', 'Etiqueta')
+          }
+        },
+        template:`<m-datepicker  
+          v-model="date"
+          :format="dateFormats.short"
+          :max-date="maxDate"
+          :locale="locale"
+          :range-presets="rangePresets"
+          color="#2e4553"
+          name="Seleccione Periodo"
+          fullscreen-mobile
+          validate
+          range
+          no-input
+          class="datepicker"  
+          :label="label"
+          ></m-datepicker>`,
+        data:()=>({
+          date:new Date(),
+          maxDate:new Date(),
+          dateFormats: 'DD-MM-YYYY', 
+          rangePresets: [
+            {
+              name: 'Més Actual',
+              dates: {
+                start: new Date(new Date().getFullYear(), new Date().getMonth(), 1),
+                end: new Date(new Date().getFullYear(), new Date().getMonth() + 1, 0),
+              },
+            }, 
+            {
+              name: 'Més Pasado',
+              dates: {
+                start: new Date(new Date().getFullYear(), new Date().getMonth() - 1, 1),
+                end: new Date(new Date().getFullYear(), new Date().getMonth(), 0),
+              },
+            }, 
+            {
+              name: 'Trimestre',
+              dates: {
+                start: new Date(new Date().getFullYear(), new Date().getMonth() - 3, 1),
+                end: new Date(new Date().getFullYear(), new Date().getMonth(), 0),
+              },
+            },
+            {
+              name: 'Semestre',
+              dates: {
+                start: new Date(new Date().getFullYear(), new Date().getMonth() - 6, 1),
+                end: new Date(new Date().getFullYear(), new Date().getMonth(), 0),
+              },
+            }
+          ],
+          locale: {
+            lang: 'fr', // or 'en', 'es', 'de',
+            weekDays: ['L', 'M', 'M', 'J', 'V', 'S', 'D'], // you can surcharge weekDays too
+          },
+        }),
+        watch: { date: action("changed")}
+    }}
+  </Story>
+</Preview>
+
+# VueDatePicker
+
+this element pass all props to [VueDatePicker](https://github.com/mathieustan/vue-datepicker) and receive all events from 
+
+<Props of={VueDatePicker}/>
+
+<Preview>
+  <Story name="With injected props" inline={true}>
+    {{
+        components: { MDatepicker },
+        props:{
+          locale:{
+            default:()=>(
+              {
+                lang:select('Language Id',['es','en','fr'], 'es'),
+            weekDays:['L', 'M', 'M', 'J', 'V', 'S', 'D'],
+          })
+          }
+        },
+        template: '<m-datepicker v-model="date" :locale="locale"></m-datepicker>',
+        data:()=>({
+          date:new Date(),
+        }),
+        watch: { date: action("watch")}
+    }}
+  </Story>
+</Preview>

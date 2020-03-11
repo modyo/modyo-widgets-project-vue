@@ -1,0 +1,75 @@
+import { Meta, Props, Story, Preview } from '@storybook/addon-docs/blocks';
+import { action } from "@storybook/addon-actions";
+import MShadowScroll from './index.vue';
+import {  text, boolean, number, date, select,color } from "@storybook/addon-knobs";
+import { withA11y } from '@storybook/addon-a11y';
+
+<Meta title="Components|MShadowScroll" 
+component={MShadowScroll} 
+decorators={[withA11y]} parameters={
+  {notes:`
+                # Notas
+                Aqui van las notas adicionales
+              `
+  }}/>
+
+# MShadowScroll
+
+<Props of={MShadowScroll} />
+
+This is a simple Shadow Scroll
+
+<Preview>
+<Story name="Shadow Scroll" inline={true}>
+  {{
+      components: { MShadowScroll },
+      props:{
+        verticalSize: {
+          type: String,
+          default: text('Vertical Size','5em')
+        },
+        horizontalSize: {
+          type: String,
+          default:  text('Horizontal Size','5em'),
+        },
+        startColor: {
+          type: String,
+          default: color('Start Color','#f0f2f3'),
+        },
+        endColor: {
+          type: String,
+          default: color('End Color','rgba(240, 242, 243, 0)'),
+        },
+      },
+      data:()=>({
+        listItems: 500,
+      }),
+      template: `
+                  <div class="container p-5">
+                      <m-shadow-scroll
+                        class="list"
+                        style="width: 600px;
+  height: 600px;
+  margin: 40px auto;
+  overflow: hidden;"
+                        :vertical-size="verticalSize"
+                        :horizontal-size="horizontalSize"
+                        :start-color="startColor"
+                        :end-color="endColor">
+                        <div
+                          v-for="item in listItems"
+                          :key="item"
+                          class="list-item">
+                          {{ item }} Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat
+                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat
+                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat
+                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat
+                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat
+                        </div>
+                      </m-shadow-scroll>
+                </div>
+                `
+  }}
+</Story>
+</Preview>
+
