@@ -212,28 +212,36 @@ export default {
 };
 </script>
 <style scoped>
-  div.overlay{
-      position:fixed;
-      z-index: -900;
-      left: 0px;
-      top:0px;
-      background:rgba(11, 10, 12, 0.35);
-      opacity: 0;
-      width: 100%;
-      height: 100%;
-      transition: opacity 0.3s ease;
+  .overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -900;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(11, 10, 12, .35);
+    opacity: 0;
+
+    transition: opacity .3s ease;
   }
-  aside.sidebar{
-      z-index: 900;
-      position: fixed;
-      will-change: transform;
-      height: 100%;
-      top: 0px;
-    transition:transform 0.3s ease;
-      background:#fff;
-      width: 300px;
-    overflow-y: auto;
+
+  .sidebar{
+    position: fixed;
+    top: 0;
+    z-index: 900;
+
+    width: 300px;
+    height: 100%;
     overflow-x: hidden;
+    overflow-y: auto;
+
     word-wrap: break-word;
+
+    background: #fff;
+
+    transition: transform .3s ease;
+    will-change: transform;
   }
 </style>

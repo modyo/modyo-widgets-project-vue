@@ -73,6 +73,14 @@ $button-side-length: calc(#{$switch-button-height} - (2 * #{$switch-button-borde
 
   .switch-button-label {
     flex: 1 0 80%;
+
+    margin-right: 20px;
+
+    color: $switch-label-inactive-color;
+
+    &.enabled {
+      color: $switch-label-active-color;
+    }
   }
 
   .switch-button {
@@ -113,16 +121,6 @@ $button-side-length: calc(#{$switch-button-height} - (2 * #{$switch-button-borde
             calc(#{$button-side-length} + (2 * #{$switch-button-border-thickness}))
           );
       }
-    }
-  }
-
-  .switch-button-label {
-    margin-right: 20px;
-
-    color: $switch-label-inactive-color;
-
-    &.enabled {
-      color: $switch-label-active-color;
     }
   }
 }
