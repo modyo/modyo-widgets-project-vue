@@ -16,6 +16,7 @@
     "build:lib": "vue-cli-service build --target lib --name  @modyo/project-base src/entry.js --fix",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
+    "lint:style": "stylelint src/components",
     "storybook:build": "vue-cli-service storybook:build -c config/storybook",
     "storybook:serve": "vue-cli-service storybook:serve -p 6006 -c config/storybook"
   },
