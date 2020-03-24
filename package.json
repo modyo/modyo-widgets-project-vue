@@ -4,6 +4,7 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
   },
+  "main":"./dist/@modyo/project-base.common.js",
   "license": "MIT",
   "repository": {
     "type": "git",
