@@ -13,7 +13,17 @@
 </template>
 <script>
 export default {
-  props: ['direction', 'exist'],
+  props: {
+    direction: {
+      type: String,
+      default: 'left',
+      validator: (val) => ['left', 'right'].includes(val),
+    },
+    exist: {
+      type: Boolean,
+      default: true,
+    },
+  },
   data() {
     return {
       auto_speed: '0.3s',
