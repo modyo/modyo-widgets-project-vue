@@ -26,8 +26,6 @@ jobs:
           echo $GITHUB_REF
           TAG=$(echo $GITHUB_REF | cut -c 11-)
           echo $TAG
-          git config user.email "operations@modyo.com"
-          git config user.name "Modyo"
           yarn version --new-version  $TAG
     - name: Publish to GitHub Package Registry
       run: yarn publish
