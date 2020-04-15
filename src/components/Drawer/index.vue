@@ -1,9 +1,14 @@
 <template>
   <section>
-    <aside class="sidebar" :style="style" ref="element">
-      <slot></slot>
+    <aside
+      ref="element"
+      class="sidebar"
+      :style="style">
+      <slot />
     </aside>
-    <div class="overlay" ref="overlay"></div>
+    <div
+      ref="overlay"
+      class="overlay" />
   </section>
 </template>
 <script>

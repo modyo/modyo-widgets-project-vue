@@ -1,0 +1,104 @@
+import { Meta, Props, Story, Stories,Preview } from '@storybook/addon-docs/blocks';
+import MSlider from './index.vue';
+import { addParameters } from '@storybook/vue';
+import {  text, boolean, number, date, select } from "@storybook/addon-knobs";
+import { withA11y } from '@storybook/addon-a11y';
+import { action } from "@storybook/addon-actions";
+import { VueAgile } from 'vue-agile';
+
+
+<Meta title="Components|MSlider" 
+component={MSlider} 
+decorators={[withA11y]}/>
+
+# MSlider
+
+<Props of={MSlider}   />
+
+## Props of VueAgile child component that accepts all Props
+
+<Props of={VueAgile}   />
+
+
+<Preview>
+  <Story name="Native Controls" inline={true}>
+    {{
+        components: { MSlider },
+        template:`<m-slider>
+        <div class="slide">
+          <h3>slide 1</h3>
+        </div>
+        <div class="slide">
+          <h3>slide n</h3>
+        </div>
+    </m-slider>`,
+    }}
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name="With Custom Buttons" inline={true}>
+    {{
+   components: { MSlider },
+        template:`<m-slider>
+          <template slot="prevButton">prev</template>
+          <template slot="nextButton" tag="slug">next</template>
+        <div class="slide">
+          <h3>slide 1</h3>
+        </div>
+        <div class="slide">
+          <h3>slide n</h3>
+        </div>
+    </m-slider>`,
+    }}
+  </Story>
+</Preview>
+
+
+<Preview>
+  <Story name="With Custom Buttons 2" inline={true}>
+    {{
+      props:{
+        autoplay:{
+          type:Boolean,
+          default:boolean('Enable autoplay',false)
+        },
+        autoplaySpeed:{
+          default:String,
+          default:number('Autoplay interval in milliseconds', 1000)
+        },
+        centerMode:{
+          type: Boolean,
+          default:boolean('Enable centered view when slidesToShow > 1',true)
+        },
+        dots:{
+          type:Boolean,
+          default:boolean('Enable dot indicators/pagination',false)
+        },
+        fade:{
+          type:Boolean,
+          default:boolean('Enable fade effect',true)
+        }
+      },
+      update(){
+        this.forceUpdate();
+      },
+      components: { MSlider },
+            template:`<m-slider 
+              :autoplay="autoplay"
+              :autoplaySpeed="autoplaySpeed"
+              :centerMode="centerMode"
+              :dots="dots"
+              :fade="fade">
+              <template slot="prevButton">Prev</template>
+              <template slot="nextButton">next</template>
+            <div class="slide">
+              <h3>slide 1</h3>
+            </div>
+            <div class="slide">
+              <h3>slide n</h3>
+            </div>
+        </m-slider>`,
+        }}
+  </Story>
+</Preview>
