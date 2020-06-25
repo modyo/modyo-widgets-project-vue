@@ -1,12 +1,14 @@
 <template>
-  <button class="button is-primary" @click="onClick">
-    <slot></slot>
+  <button
+    class="button is-primary"
+    @click="onClick">
+    <slot />
   </button>
 </template>
 
 <script>
 export default {
-  name: 'modyoButton',
+  name: 'ModyoButton',
 
   methods: {
     onClick() {

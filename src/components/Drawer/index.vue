@@ -1,14 +1,29 @@
 <template>
   <section>
-    <aside class="sidebar" :style="style" ref="element">
-      <slot></slot>
+    <aside
+      ref="element"
+      class="sidebar"
+      :style="style">
+      <slot />
     </aside>
-    <div class="overlay" ref="overlay"></div>
+    <div
+      ref="overlay"
+      class="overlay" />
   </section>
 </template>
 <script>
 export default {
-  props: ['direction', 'exist'],
+  props: {
+    direction: {
+      type: String,
+      default: 'left',
+      validator: (val) => ['left', 'right'].includes(val),
+    },
+    exist: {
+      type: Boolean,
+      default: true,
+    },
+  },
   data() {
     return {
       auto_speed: '0.3s',

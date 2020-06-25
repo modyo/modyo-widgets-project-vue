@@ -1,7 +1,5 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-  </div>
+  <div id="app" />
 </template>
 
 <script>
@@ -12,7 +10,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss">
-
-</style>
