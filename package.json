@@ -4,7 +4,7 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
   },
-  "main":"./dist/@modyo/project-base.common.js",
+  "main": "./dist/@modyo/project-base.common.js",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -19,16 +19,17 @@
     "lint": "vue-cli-service lint",
     "lint:style": "stylelint src/components",
     "storybook:build": "vue-cli-service storybook:build -c config/storybook",
-    "storybook:serve": "vue-cli-service storybook:serve -p 6006 -c config/storybook"
+    "storybook:serve": "vue-cli-service storybook:serve -p 6006 -c config/storybook",
+    "commit:lint": "commitlint -E HUSKY_GIT_PARAMS"
   },
   "dependencies": {
     "@fullhuman/postcss-purgecss": "^2.1.0",
     "@mathieustan/vue-datepicker": "^0.2.3-rc.1",
     "@storybook/addon-backgrounds": "^5.3.17",
+    "@storybook/addon-viewport": "^5.3.17",
     "@storybook/addons": "^5.3.17",
     "@storybook/theming": "^5.3.17",
     "@storybook/vue": "^5.3.17",
-    "@storybook/addon-viewport": "^5.3.17",
     "bootstrap": "^4.4.1",
     "core-js": "^3.6.4",
     "currency.js": "^1.2.2",
@@ -37,6 +38,8 @@
     "vue": "^2.6.11"
   },
   "devDependencies": {
+    "@commitlint/cli": "^9.0.1",
+    "@commitlint/config-conventional": "^9.0.1",
     "@storybook/addon-a11y": "^5.3.17",
     "@storybook/addon-actions": "^5.3.17",
     "@storybook/addon-docs": "^5.3.17",
@@ -53,10 +56,12 @@
     "eslint": "^6.8.0",
     "eslint-plugin-import": "^2.20.1",
     "eslint-plugin-vue": "^6.2.1",
+    "husky": "^4.2.5",
     "node-sass": "^4.13.1",
     "sass-loader": "^8.0.2",
     "stylelint": "^13.2.1",
     "stylelint-config-twbs-bootstrap": "^2.0.1",
+    "validate-branch-name": "^1.0.6",
     "vue-cli-plugin-storybook": "~1.2.1",
     "vue-template-compiler": "^2.6.11"
   }
