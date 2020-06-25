@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "@fullhuman/postcss-purgecss": "^2.1.0",
-    "@mathieustan/vue-datepicker": "^0.2.3-rc.1",
+    "@mathieustan/vue-datepicker": "^0.2.6",
     "@storybook/addon-backgrounds": "^5.3.17",
     "@storybook/addon-viewport": "^5.3.17",
     "@storybook/addons": "^5.3.17",

@@ -1,0 +1,97 @@
+import { Meta, Props, Story, Preview } from '@storybook/addon-docs/blocks';
+import { action } from "@storybook/addon-actions";
+import MSlideOutPanel from './index.vue';
+import {  text, boolean, number, date, select } from "@storybook/addon-knobs";
+import { withA11y } from '@storybook/addon-a11y';
+
+<Meta title="Components|MSlideOutPanel" 
+component={MSlideOutPanel} 
+decorators={[withA11y]} parameters={
+  {notes:`
+                # Notas
+                Aqui van las notas adicionales
+              `
+  }}/>
+
+# MSlideOutPanel
+
+<Props of={MSlideOutPanel} />
+
+This is a simple MSlideOutPanel Panel
+
+<Preview>
+<Story name="MSlideOutPanel Panel" inline={true}>
+  {{
+      components: { MSlideOutPanel },
+      props:{
+        width: {
+          type: [String, Number],
+          default: text('Set a width','50%'),
+        },
+        height: {
+          type: [String, Number],
+          default:text('Set a height','50%'),
+        },
+        openOn: {
+          type: String,
+          default: select('Select where to open',['left','right','bottom','top'],'left'),
+        },
+        classes: {
+          type: String,
+          default: text('add clases',''),
+        },
+        transparentBg: {
+          type: Boolean,
+          default: boolean('Use Transparent Background',false),
+        },
+        removeBg: {
+          type: Boolean,
+          default: boolean('Remove background',false),
+        },
+        disableBgClick: {
+          type: Boolean,
+          default: boolean('disable Bacground Click',false),
+        },
+        disableEscClick: {
+          type: Boolean,
+          default: boolean('disable Esc Button to close',false),
+        },
+        closeIcon: {
+          type: String,
+          default: text('Select icon for close button','times-circle'),
+        },
+      },
+      template: `
+      <div >
+                 <m-slide-out-panel 
+                 ref="slidePanel"
+                 :width="width"
+                 :height="height"
+                 :openOn="openOn"
+                 :classes="classes"
+                 :transparentBg="transparentBg"
+                :removeBg="removeBg"
+                :disableBgClick="disableBgClick"
+                :disableEscClick="disableEscClick"
+                :closeIcon="closeIcon">
+                    <h1>hola</h1>
+                  </m-slide-out-panel>
+                  <button @click="openSlidePanel">
+                    open
+                  </button>
+                  </div>
+                `,
+      methods: { 
+        openSlidePanel() {
+          this.$refs.slidePanel.openDrawer();
+        },
+        action: action("clicked") ,
+        handleSlideStart:action('handleSlideStart'),
+        handleSlideMove:action('handleSlideMove'),
+        handleSlideEnd:action('handleSlideEnd'),
+        handleMaskClick:action('handleMaskClick'),
+      }
+  }}
+</Story>
+</Preview>
+
