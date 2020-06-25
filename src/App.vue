@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import MSlideOutPanel from './components/Drawer/index.vue';
+import MSlideOutPanel from './components/MSlideOutPanel/index.vue';
 
 export default {
   name: 'App',

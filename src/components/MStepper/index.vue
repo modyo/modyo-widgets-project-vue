@@ -374,7 +374,6 @@ export default {
       return JSON.parse(window[this.storekeeper].getItem(this.id));
     },
 
-
     /**
      * Update v-model.
      */

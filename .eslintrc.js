@@ -49,12 +49,14 @@ module.exports = {
       {
         devDependencies: [
           '.storybook/**',
-          '**/*.stories.js' 
-        ]
-      }
+          '**/*.stories.js',
+          '**/*.specs.js',
+          '**/*.test.js'
+        ],
+      },
     ],
-    "template-curly-spacing" : "off",
-    indent : "off"
+    'template-curly-spacing': 'off',
+    indent: 'off',
   },
 
   parserOptions: {
