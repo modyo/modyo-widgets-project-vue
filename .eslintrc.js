@@ -51,7 +51,7 @@ module.exports = {
           '.storybook/**',
           '**/*.stories.js',
           '**/*.specs.js',
-          '**/*.test.js'
+          '**/*.test.js',
         ],
       },
     ],
