@@ -44,6 +44,19 @@ module.exports = {
         'e', // for e.return value
       ],
     }],
+    'import/no-extraneous-dependencies': [
+      'error',
+      {
+        devDependencies: [
+          '.storybook/**',
+          '**/*.stories.js',
+          '**/*.specs.js',
+          '**/*.test.js',
+        ],
+      },
+    ],
+    'template-curly-spacing': 'off',
+    indent: 'off',
   },
 
   parserOptions: {

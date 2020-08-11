@@ -1,4 +1,4 @@
-export { default as Drawer } from './Drawer/index.vue';
+export { default as MSlideOutPanel } from './MSlideOutPanel/index.vue';
 export { default as MButton } from './MButton/index.vue';
 export { default as MDatepicker } from './MDatepicker/index.vue';
 export { default as MProgressBar } from './MProgressBar/index.vue';

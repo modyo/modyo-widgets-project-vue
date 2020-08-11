@@ -72,14 +72,11 @@ export default {
           if (value) {
             return true;
           }
-          console.error(
-            `Property "${name}" must be of type ${[]
+          throw new Error(`Property "${name}" must be of type ${[]
               .concat(type)
               // eslint-disable-next-line no-shadow
               .map((type) => String(type))
-              .join(' or ')}.`,
-          );
-          return false;
+              .join(' or ')}.`);
         });
       },
     },
@@ -373,7 +370,6 @@ export default {
     getStorage() {
       return JSON.parse(window[this.storekeeper].getItem(this.id));
     },
-
 
     /**
      * Update v-model.
